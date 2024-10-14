@@ -1,0 +1,1 @@
+    client = CosmosClient("<azure-cosmos-db-nosql-connection-string>")
