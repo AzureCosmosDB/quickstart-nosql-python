@@ -12,7 +12,7 @@ def getLastRequestCharge(c):
 
 
 def runDemo(endpoint, writeOutput):
-    client = CosmosClient("<azure-cosmos-db-nosql-connection-string>")
+    client = CosmosClient.from_connection_string("<azure-cosmos-db-nosql-connection-string>")
 
     # <get_database>
     database = client.get_database_client("cosmicworks")
