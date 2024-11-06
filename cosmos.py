@@ -1,8 +1,7 @@
-# <imports>
+from dotenv import load_dotenv
+
 from azure.cosmos import CosmosClient
 from azure.identity import DefaultAzureCredential
-
-# </imports>
 
 import json
 import os
@@ -12,13 +11,17 @@ def getLastRequestCharge(c):
 
 
 def runDemo(writeOutput):
+    load_dotenv()
+
     client = CosmosClient.from_connection_string("<azure-cosmos-db-nosql-connection-string>")
 
-    database = client.get_database_client("cosmicworks")
+    databaseName = os.getenv("CONFIGURATION__AZURECOSMOSDB__DATABASENAME", "cosmicworks")
+    database = client.get_database_client(databaseName)
 
     writeOutput(f"Get database:\t{database.id}")
 
-    container = database.get_container_client("products")
+    containerName = os.getenv("CONFIGURATION__AZURECOSMOSDB__CONTAINERNAME", "products")
+    container = database.get_container_client(containerName)
 
     writeOutput(f"Get container:\t{container.id}")
 
