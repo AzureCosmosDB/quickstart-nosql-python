@@ -26,7 +26,7 @@ def runDemo(writeOutput):
     writeOutput(f"Get container:\t{container.id}")
 
     new_item = {
-        "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+        "id": "1aaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "category": "gear-surf-surfboards",
         "name": "Yamba Surfboard",
         "quantity": 12,
